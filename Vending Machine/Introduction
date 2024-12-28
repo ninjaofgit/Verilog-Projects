@@ -1,1 +1,24 @@
+Brief Description:
+This project features a Verilog-based implementation of a vending machine utilizing the Mealy state machine model. The vending machine is specifically designed to accept ₹5 and ₹10 denominations and dispense a single product priced at ₹15. It efficiently manages scenarios such as exact payments, overpayments with change return, and transaction cancellations, ensuring reliability and customer satisfaction.
 
+Working:
+The vending machine's operation involves three defined states:
+
+-> State S0 (₹0 inserted):
+When ₹5 is input, the machine transitions to State S1.
+When ₹10 is input, the machine transitions to State S2.
+
+-> State S1 (₹5 inserted):
+Adding another ₹5 moves the machine to State S2, summing to ₹10.
+Instead, adding ₹10 completes the ₹15 requirement, dispensing the product and transitioning back to State S0.
+On the other hand, if the transaction is cancelled at this stage, the machine returns ₹5 as change and reverts to State S0.
+
+-> State S2 (₹10 inserted):
+Adding ₹5 completes the payment, resulting in the product being dispensed, and the machine transitions back to State S0.
+Adding another ₹10 results in an overpayment; the machine dispenses the product, returns ₹5 as change, and transitions back to State S0.
+If the transaction is canceled, the machine returns ₹10 as change and reverts to State S0.
+
+This structured state-machine approach ensures precise handling of all possible permutations and combinations of the input, maintaining accuracy in product dispensing and change management. The system's logic is carefully designed to provide a robust solution for vending machine automation.
+
+Conclusion:
+The Verilog implementation in this repository models the described state transitions, demonstrating the practical application of Mealy state machines in real-world scenarios. With a focus on clarity and efficiency, the project provides a comprehensive example of designing digital systems for everyday use.
